@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OG Supabase - Unlimited</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="header">
+    <h2>⚡ OG Supabase</h2>
+    <span>Unlimited Database</span>
+  </div>
+
+  <div class="container">
+    <input id="pass" type="password" placeholder="Admin Password (ADMIN_PASS)">
+    
+    <div class="quick">
+      <span onclick="quick('SELECT * FROM users;')">users</span>
+      <span onclick="quick('SELECT * FROM transactions ORDER BY created_at DESC LIMIT 50;')">transactions</span>
+      <span onclick="quick('SELECT table_name FROM information_schema.tables WHERE table_schema=\\'public\\';')">tables</span>
+      <span onclick="quick('SELECT email, balance FROM users WHERE balance > 0;')">balances</span>
+    </div>
+
+    <label>SQL Query:</label>
+    <textarea id="sql">SELECT * FROM users;</textarea>
+    
+    <button id="runBtn">▶ Run Query (Ctrl + Enter)</button>
+    
+    <div id="output">
+      <div class="empty">Run a query to see results...</div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
